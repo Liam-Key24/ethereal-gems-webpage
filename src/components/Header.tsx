@@ -1,6 +1,7 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import React from 'react';
+import { useState } from 'react';
 import { ShoppingBag, Search } from 'lucide-react';
 import Link from 'next/link';
 
@@ -19,10 +20,19 @@ const Header = () => {
         <Link href="/company" className="hover:text-gray-600">Company</Link>
       </nav>
       <div className="flex items-center space-x-4">
-        <Search className="w-5 h-5 cursor-pointer" />
+<div className="relative flex items-center">
+  <input
+    type="text"
+    placeholder="Search"
+    className="border rounded-md px-4 py-2 w-64" >
+      <button>
+        <Search className="w-5 h-5" />
+      </button>
+    </input>
+</div>
         <ShoppingBag className="w-5 h-5 cursor-pointer" />
       </div>
-    </motion.header>
+    
   );
 };
 
