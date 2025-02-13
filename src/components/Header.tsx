@@ -1,39 +1,58 @@
-'use client';
+'use client'
 
-import React from 'react';
-import { useState } from 'react';
-import { ShoppingBag, Search } from 'lucide-react';
-import Link from 'next/link';
+import React, { useState } from 'react'
+import { Menu, X } from 'lucide-react'
 
-const Header = () => {
+export function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+  const menuItems = ['Shop', 'Collection \'24', 'About', 'Contact']
+
   return (
-    <motion.header 
-      initial={{ opacity: 0, y: -20 }}
-      animate={{ opacity: 1, y: 0 }}
-      className="py-4 px-8 flex items-center justify-between"
-    >
-      <h1 className="text-2xl font-serif">Ethereal Gems</h1>
-      <nav className="flex space-x-8">
-        <Link href="/" className="hover:text-gray-600">Home</Link>
-        <Link href="/products" className="hover:text-gray-600">Products</Link>
-        <Link href="/services" className="hover:text-gray-600">Services</Link>
-        <Link href="/company" className="hover:text-gray-600">Company</Link>
-      </nav>
-      <div className="flex items-center space-x-4">
-<div className="relative flex items-center">
-  <input
-    type="text"
-    placeholder="Search"
-    className="border rounded-md px-4 py-2 w-64" >
-      <button>
-        <Search className="w-5 h-5" />
-      </button>
-    </input>
-</div>
-        <ShoppingBag className="w-5 h-5 cursor-pointer" />
+    <>
+      <div className='flex justify-between items-center w-full my-4 px-4'>
+        <h1>Ethereal <span className='italic'>Gems</span></h1>
+        
+        <div className='flex items-center gap-4'>
+          <nav className='hidden md:block'>
+            <ul className='flex gap-6'>
+              {menuItems.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
+            </ul>
+          </nav>
+          
+          <button 
+            className='md:hidden'
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            <Menu size={24} />
+          </button>
+        </div>
       </div>
-    
-  );
-};
 
-export default Header;
+      <div 
+        className={`fixed top-0 left-0 w-full bg-white transform 
+        transition-transform duration-300 ease-in-out ${
+          isMenuOpen ? 'translate-y-0' : '-translate-y-full'
+        } shadow-lg md:hidden`}
+      >
+        <h1 className="absolute top-4 left-4">Ethereal <span className="italic">Gems</span></h1>
+        <button 
+          onClick={() => setIsMenuOpen(false)}
+          className="absolute top-4 right-4"
+        >
+          <X size={24} />
+        </button>
+        
+        <div className='p-6 mt-12'>
+          <ul className='space-y-6 text-lg'>
+            {menuItems.map((item, index) => (
+              <li key={index}>{item}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </>
+  )
+}

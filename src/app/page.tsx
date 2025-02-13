@@ -1,9 +1,12 @@
-import Header from '@/components/Header';
-import Hero from '@/components/Hero';
+import {Header} from '@/components/Header';
+import {Hero} from '@/components/Hero';
+import { Banner } from '@/components/Banner';
 import LatestCollection from '@/components/LatestCollection';
 import BestSellers from '@/components/BestSellers';
-import Newsletter from '@/components/Newsletter';
+
 import Footer from '@/components/Footer';
+import { ShowCase } from '@/components/ShowCase';
+import {SocialSection} from '@/components/SocialSection';
 
 export default function Home() {
   return (
@@ -11,9 +14,11 @@ export default function Home() {
       <Header />
       <Hero />
       <LatestCollection />
+      <ShowCase />
       <BestSellers />
-      <Newsletter />
+      <Banner />
+      <SocialSection />
       <Footer />
     </div>
-  );
+  )
 }
