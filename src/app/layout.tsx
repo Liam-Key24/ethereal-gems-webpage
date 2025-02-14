@@ -1,8 +1,9 @@
 import type { Metadata } from 'next';
 import { Playfair_Display } from 'next/font/google';
+import { Teachers } from 'next/font/google';
 import './globals.css';
 
-const playfair = Playfair_Display({ subsets: ['latin'] });
+const teachers = Teachers({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Ethereal Gems - Timeless Beauty',
@@ -16,7 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={playfair.className}>{children}</body>
+      <body className={teachers.className} >{children}</body>
     </html>
   );
 }

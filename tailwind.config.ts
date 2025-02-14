@@ -11,6 +11,13 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        sage: '#D0D7C1',
+        yellow: '#FFBC1F',
+        drkblue: '#143D66',
+      },
+      fontFamily: {
+        sans: ['Teachers', 'sans-serif'],
+        serif: ['Cormorant Garamond', 'serif'],
       },
     },
   },

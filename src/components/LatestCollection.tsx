@@ -49,7 +49,7 @@ const LatestCollection = () => {
 
   return (
     <div className="w-auto h-auto m-4 relative overflow-hidden border-2 border-yellow-200 py-12 ">
-      <h2 className="text-5xl font-serif mx-4">Our Cores</h2>
+      <h2 className="md:text-9xl font-serif mx-4">Our Cores</h2>
       <div className="relative w-auto h-[500px] mx-2 rounded-lg">
         {collections.map((item, index) => (
           <div

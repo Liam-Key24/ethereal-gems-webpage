@@ -1,4 +1,4 @@
-import {Header} from '@/components/Header';
+import {Header} from '@/components/Navbar';
 import {Hero} from '@/components/Hero';
 import { Banner } from '@/components/Banner';
 import LatestCollection from '@/components/LatestCollection';
